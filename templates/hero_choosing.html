@@ -14,31 +14,31 @@
         <h2>{{ result.header }}</h2>
       <form action="", method="post">
         <div class="form-group">
-            <input type="text", name="name" class="form-control" placeholder="Имя героя">
+            <input type="text", name="name" class="form-control" placeholder="Hero's name">
           <hr>
           <select class="custom-select" name="unit_class" required>
-             <option value="">Выберите класс</option>
+             <option value="">Choose class</option>
               {% for class in result.classes %}
                   <option value="{{ class }}">{{ class }}</option>
               {% endfor %}
            </select>
           <hr>
             <select class="custom-select" name="weapon" required>
-             <option value="">Выберите оружие</option>
+             <option value="">Choose weapon</option>
               {% for weapon_name in result.weapons %}
                   <option value="{{ weapon_name }}">{{ weapon_name }}</option>
               {% endfor %}
            </select>
           <hr>
           <select class="custom-select" name="armor" required>
-             <option value="">Выберите броню</option>
+             <option value="">Choose armor</option>
               {% for armor_name in result.armors %}
                   <option value="{{ armor_name }}">{{ armor_name }}</option>
               {% endfor %}
            </select>
           <hr>
           </div>
-        <button class="btn btn-success" type="submit">Выбрать героя</button>
+        <button class="btn btn-success" type="submit">Choose a hero</button>
        </form>
       </div>
     </main>
