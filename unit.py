@@ -7,12 +7,10 @@ from random import randint
 
 class BaseUnit(ABC):
     """
-    Базовый класс юнита
+    Base unit class
     """
     def __init__(self, name: str, unit_class: UnitClass):
-        """
-        При инициализации класса Unit используем свойства класса UnitClass
-        """
+        """Use UnitClass attributes for initialization"""
         self.name = name
         self.unit_class = unit_class
         self.hp = unit_class.max_health
@@ -31,11 +29,11 @@ class BaseUnit(ABC):
 
     def equip_weapon(self, weapon: Weapon):
         self.weapon = weapon
-        return f"{self.name} экипирован оружием {self.weapon.name}"
+        return f"{self.name} equipped the {self.weapon.name}"
 
     def equip_armor(self, armor: Armor):
         self.armor = armor
-        return f"{self.name} экипирован броней {self.weapon.name}"
+        return f"{self.name} equipped the {self.armor.name}"
 
     def _count_damage(self, target: BaseUnit) -> int:
         """
@@ -76,9 +74,6 @@ class BaseUnit(ABC):
 
     @abstractmethod
     def hit(self, target: BaseUnit) -> str:
-        """
-        этот метод будет переопределен ниже
-        """
         pass
 
     def use_skill(self, target: BaseUnit) -> str:
@@ -93,21 +88,21 @@ class PlayerUnit(BaseUnit):
 
     def hit(self, target: BaseUnit) -> str:
         if self.stamina < self.weapon.stamina_per_hit:
-            return f"{self.name} попытался использовать {self.weapon.name}, но у него не хватило выносливости."
+            return f"{self.name} tried to use {self.weapon.name}, but did not have enough stamina."
 
         hit_damage = self._count_damage(target)
 
         if hit_damage:
-            return f"{self.name} используя {self.weapon.name} пробивает {target.armor.name} соперника и наносит {round(hit_damage)} урона."
+            return f"{self.name} pierces through the opponent's {target.armor.name} using {self.weapon.name} and deals {round(hit_damage)} damage."
 
-        return f"{self.name} используя {self.weapon.name} наносит удар, но {target.armor.name} cоперника его останавливает."
+        return f"{self.name} strikes using {self.weapon.name}, but the opponent's {target.armor.name} stops it."
 
 
 class EnemyUnit(BaseUnit):
 
     def hit(self, target: BaseUnit) -> str:
         if self.stamina < self.weapon.stamina_per_hit:
-            return f"{self.name} попытался использовать {self.weapon.name}, но у него не хватило выносливости."
+            return f"{self.name} tried to use {self.weapon.name}, but did not have enough stamina."
 
         if not self._is_skill_used:
             will_use_skill = randint(1, 10) == 10  # Can't be bothered with magic numbers rn
@@ -117,6 +112,6 @@ class EnemyUnit(BaseUnit):
         hit_damage = self._count_damage(target)
 
         if hit_damage:
-            return f"{self.name} используя {self.weapon.name} пробивает {target.armor.name} и наносит Вам {round(hit_damage)} урона."
+            return f"{self.name} pierces through your {target.armor.name} using {self.weapon.name} and deals {round(hit_damage)} damage."
 
-        return f"{self.name} используя {self.weapon.name} наносит удар, но ваш(а) {target.armor.name} его останавливает."
+        return f"{self.name} strikes using {self.weapon.name}, but your {target.armor.name} stops it."
