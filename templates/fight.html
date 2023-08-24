@@ -11,32 +11,32 @@
         <div class="row align-text-top">
           <div class="col align-self-start">
             <h2>{{ heroes.player.name }}</br>класс: <em>{{ heroes.player.unit_class.name }}</em></h2>
-            <p><em>Экипировка:</em></p>
+            <p><em>Equipment:</em></p>
             <hr>
-            <p>Оружие: {{ heroes.player.weapon.name }}, урон: {{ heroes.player.weapon.min_damage }} - {{ heroes.player.weapon.max_damage }}</br> Броня:
-              {{ heroes.player.armor.name }}, защита: {{ heroes.player.armor.defence }}</p>
+            <p>Weapon: {{ heroes.player.weapon.name }}, damage: {{ heroes.player.weapon.min_damage }} - {{ heroes.player.weapon.max_damage }}</br> Armor:
+              {{ heroes.player.armor.name }}, defence: {{ heroes.player.armor.defence }}</p>
             <hr>
-            <p><em>Информация:</em></p>
+            <p><em>Info:</em></p>
             <hr>
-            <p>Очки здоровья: {{ heroes.player.health_points }}/{{ heroes.player.unit_class.max_health }}</br> Очки выносливости:
+            <p>Health points: {{ heroes.player.health_points }}/{{ heroes.player.unit_class.max_health }}</br> Stamina points:
               {{ heroes.player.stamina_points }}/{{ heroes.player.unit_class.max_stamina }}</p>
           </div>
           <div class="col align-self-center">
-            <button type="button" onclick="window.location.href='/fight/hit'" class="btn btn-success m-2">Нанести удар</button></br>
-            <button type="button" onclick="window.location.href='/fight/use-skill'" class="btn btn-danger m-2">Использовать умение</button></br>
-            <button type="button" onclick="window.location.href='/fight/pass-turn'" class="btn btn-warning m-2">Пропустить ход</button></br>
-            <button type="button" onclick="window.location.href='/fight/end-fight'" class="btn btn-secondary m-2">Завершить бой</button>
+            <button type="button" onclick="window.location.href='/fight/hit'" class="btn btn-success m-2">Attack</button></br>
+            <button type="button" onclick="window.location.href='/fight/use-skill'" class="btn btn-danger m-2">Use skill</button></br>
+            <button type="button" onclick="window.location.href='/fight/pass-turn'" class="btn btn-warning m-2">Skip turn</button></br>
+            <button type="button" onclick="window.location.href='/fight/end-fight'" class="btn btn-secondary m-2">End the battle</button>
           </div>
           <div class="col align-self-start">
-            <h2>{{ heroes.enemy.name }}</br>класс: <em>{{ heroes.enemy.unit_class.name }}</em></h2>
-            <p><em>Экипировка:</em></p>
+            <h2>{{ heroes.enemy.name }}</br>class: <em>{{ heroes.enemy.unit_class.name }}</em></h2>
+            <p><em>Equipment:</em></p>
             <hr>
-            <p>Оружие: {{ heroes.enemy.weapon.name }}, урон: {{ heroes.enemy.weapon.min_damage }} - {{ heroes.enemy.weapon.max_damage }}</br> Броня:
-              {{ heroes.enemy.armor.name }}, защита: {{ heroes.enemy.armor.defence }}</p>
+            <p>Weapon: {{ heroes.enemy.weapon.name }}, damage: {{ heroes.enemy.weapon.min_damage }} - {{ heroes.enemy.weapon.max_damage }}</br> Armor:
+              {{ heroes.enemy.armor.name }}, defence: {{ heroes.enemy.armor.defence }}</p>
             <hr>
-            <p><em>Информация:</em></p>
+            <p><em>Info:</em></p>
             <hr>
-            <p>Очки здоровья: {{ heroes.enemy.health_points }}/{{ heroes.enemy.unit_class.max_health }}</br> Очки выносливости:
+            <p>Health points: {{ heroes.enemy.health_points }}/{{ heroes.enemy.unit_class.max_health }}</br> Stamina points:
               {{ heroes.enemy.stamina_points }}/{{ heroes.enemy.unit_class.max_stamina }}</p>
           </div>
         </div>
