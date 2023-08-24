@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class Skill(ABC):
     """
-    Базовый класс умения
+    Base skill class
     """
     user = None
     target = None
@@ -41,7 +41,7 @@ class Skill(ABC):
     def skill_effect(self) -> str:
         self.user.take_stamina_damage(self.stamina_required)
         self.target.take_damage(self.damage)
-        return f'{self.user.name} использует {self.name} и наносит {round(self.damage)} урона сопернику.'
+        return f'{self.user.name} uses {self.name} and deals {round(self.damage)} damage to the opponent.'
 
 
 class FuryPunch(Skill):
